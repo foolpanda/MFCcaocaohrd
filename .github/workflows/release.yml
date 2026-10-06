@@ -16,11 +16,12 @@ jobs:
     strategy:
       matrix:
         include:
+          # sln 的解决方案级平台名是 x64 / x86（Win32 只存在于项目级）
           - arch: x64
             platform: x64
             exe: MFCcaocaohrd_x64r.exe
           - arch: x86
-            platform: Win32
+            platform: x86
             exe: MFCcaocaohrd_x86r.exe
     steps:
       - uses: actions/checkout@v4
