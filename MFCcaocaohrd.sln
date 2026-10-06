@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCcaocaohrd", "MFCcaocaohrd\MFCcaocaohrd.vcxproj", "{1C8EDD88-C48A-4A05-9109-E9CD2EDC7164}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C8EDD88-C48A-4A05-9109-E9CD2EDC7164}.Debug|x64.ActiveCfg = Debug|x64
+		{1C8EDD88-C48A-4A05-9109-E9CD2EDC7164}.Debug|x64.Build.0 = Debug|x64
+		{1C8EDD88-C48A-4A05-9109-E9CD2EDC7164}.Debug|x86.ActiveCfg = Debug|Win32
+		{1C8EDD88-C48A-4A05-9109-E9CD2EDC7164}.Debug|x86.Build.0 = Debug|Win32
+		{1C8EDD88-C48A-4A05-9109-E9CD2EDC7164}.Release|x64.ActiveCfg = Release|x64
+		{1C8EDD88-C48A-4A05-9109-E9CD2EDC7164}.Release|x64.Build.0 = Release|x64
+		{1C8EDD88-C48A-4A05-9109-E9CD2EDC7164}.Release|x86.ActiveCfg = Release|Win32
+		{1C8EDD88-C48A-4A05-9109-E9CD2EDC7164}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FC6865C9-5360-4881-8651-3A548F4FE4E2}
+	EndGlobalSection
+EndGlobal

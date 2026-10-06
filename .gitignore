@@ -1,0 +1,26 @@
+# Visual Studio IDE 缓存
+.vs/
+
+# 构建输出目录
+[Dd]ebug/
+[Rr]elease/
+x64/
+Win32/
+
+# 编译中间产物
+*.obj
+*.pdb
+*.ipdb
+*.iobj
+*.res
+*.ilk
+*.exe
+*.recipe
+*.CppClean.log
+
+# 资源编辑器生成的缓存/备份
+*.aps
+
+# 本地用户配置
+*.user
+.claude/
