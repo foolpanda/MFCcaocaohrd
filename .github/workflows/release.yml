@@ -1,0 +1,66 @@
+name: Build & Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        include:
+          - arch: x64
+            platform: x64
+            exe: MFCcaocaohrd_x64r.exe
+          - arch: x86
+            platform: Win32
+            exe: MFCcaocaohrd_x86r.exe
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Build Release (${{ matrix.arch }})
+        run: msbuild MFCcaocaohrd.sln /p:Configuration=Release /p:Platform=${{ matrix.platform }} /m /nologo /verbosity:minimal
+
+      - name: Package
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force dist | Out-Null
+          $name = "MFCcaocaohrd-${{ github.ref_name }}-${{ matrix.arch }}"
+          New-Item -ItemType Directory -Force $name | Out-Null
+          Copy-Item "bin/${{ matrix.exe }}" "$name/"
+          Copy-Item "bin/sanguohrd.txt" "$name/"
+          Copy-Item "bin/bk.mp3" "$name/"
+          Compress-Archive -Path "$name/*" -DestinationPath "dist/$name.zip"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zip-${{ matrix.arch }}
+          path: dist/*.zip
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: zip-*
+          merge-multiple: true
+          path: dist
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.zip
+          generate_release_notes: true
