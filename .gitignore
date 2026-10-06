@@ -24,3 +24,4 @@ Win32/
 # 本地用户配置
 *.user
 .claude/
+.DS_Store
