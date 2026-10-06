@@ -11,7 +11,8 @@ permissions:
 
 jobs:
   build:
-    runs-on: windows-latest
+    # windows-2022 镜像自带 VS2022 v143 工具集和 MFC 库（windows-latest 的 VS2026 不带 MFC，会报 MSB8041）
+    runs-on: windows-2022
     strategy:
       matrix:
         include:
